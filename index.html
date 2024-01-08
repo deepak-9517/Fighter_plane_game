@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Your+First+Font&family=Your+Second+Font&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        body{
+            background-image: url('snow.gif');
+            background-size: cover;
+            position: fixed;
+        }
+        #plane{
+            position: absolute;
+            top: 500px;
+            left: 600px;
+            /* background-color: red; */
+        }
+        
+        .bulletr,.bulletl{
+            position: absolute;
+            z-index: -10;
+            transform: rotate(-90deg);
+            height: 15px;
+            /* background-color: red; */
+            width: 80px;
+            transition: 0.5s;
+        }
+        .fire{
+            position: absolute;
+            /* background-color: red; */
+            height: 100px;
+            width: 70px;
+            transition: 0.5s;
+        }
+        audio{
+            visibility: hidden;
+        }
+        #flame{
+            position: absolute;
+            height: 80px;
+            width: 80px;
+            display: none;
+        }
+        #time,#score{
+            color:white;
+            position: absolute;
+            font-size: 45px;
+            padding: 20px;
+            z-index: 10;
+        }
+        #score{
+            top: 20px;
+            left: 10px;
+        }
+        #time{
+            top: 20px;
+            right:-550px;
+        }
+        #main{
+            background-color: rgba(3, 3, 3, 0.5);
+            /* opacity: 0.1; */
+            color: white;
+            height: 100vh;
+            width: 100vw;
+            position: absolute;
+            top: 0;
+            z-index: 10;
+            left: 0;
+            text-align: center;
+            display: none;
+        }
+        #main h1{
+            font-size: 200px;
+            margin-top: 150px;
+            /* font-family: 'Oswald', sans-serif; */
+            font-family: 'Playfair Display', serif;
+        }
+        #main #btn button{
+            font-size: 50px;
+            padding: 10px;
+            border-radius: 30px;
+            background-color: #fdfdfd;
+            font-family: 'Playfair Display', serif;
+            margin-left: 200px;
+            margin-top: 70px;
+        }
+        #main #btn{
+            margin-left: -300px;
+        }
+    </style>
+</head>
+<body onload="sound()">
+    <img src="plane.png" height="150" width="90" id="plane"/>
+    <audio controls id="gunsound">
+        <source src="s.mp3" type="audio/mpeg">
+      </audio>
+    <!--<audio id="background" autoplay loop>
+        <source src="background.mp3" type="audio/mpeg">
+      </audio>-->
+    <audio controls id="bomb">
+        <source src="bomb2.mp3" type="audio/mpeg">
+      </audio>
+    <audio controls id="gameOver">
+        <source src="game_over.mp3" type="audio/mpeg">
+      </audio>
+      <img src="flame.gif" id="flame"/>
+      <!--<img src="blast.gif" id="blast" height="100" width="130"/>-->
+    <div id="time">
+        <span>Time: </span>
+        <span id="timemin">0:0</span>
+    </div>
+    <div id="score">
+        <span>Score: </span>
+        <span id="fscore">0</span>
+    </div>
+    <div id="main">
+        <h1>GAME OVER</h1>
+        <div id="btn">
+        <button onclick="reload()">Restart</button>
+        <button onclick="exit_page()">EXIT</button>
+    </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
